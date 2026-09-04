@@ -116,4 +116,477 @@
   .diagram-link:hover .node-dot, .diagram-link:focus .node-dot{r:9;}
   .diagram-link{cursor:pointer;}
 
-  /*
+  /* ---------- SECTIONS ---------- */
+  section.indication{
+    padding:38px 0 6px;
+    border-top:3px solid var(--yellow);
+    scroll-margin-top:16px;
+  }
+  section.indication + section.indication{margin-top:6px;}
+
+  .tag-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+  }
+  .evidence-tag{
+    font-size:0.72rem;
+    color:var(--sage);
+    background:rgba(72,96,79,0.09);
+    border:1px solid rgba(72,96,79,0.25);
+    padding:3px 9px;
+    border-radius:999px;
+    letter-spacing:0.01em;
+  }
+
+  h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.7rem;
+    margin:0 0 10px;
+  }
+
+  .frame{
+    font-size:0.98rem;
+    color:var(--ink-soft);
+    max-width:48ch;
+    margin:0 0 18px;
+  }
+
+  ul.outcomes{
+    list-style:none;
+    margin:0 0 22px;
+    padding:0;
+  }
+  ul.outcomes li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:10px;
+    font-size:1rem;
+  }
+  ul.outcomes li::before{
+    content:"";
+    position:absolute;
+    left:0; top:0.55em;
+    width:7px; height:7px;
+    background:var(--turmeric);
+  }
+  ul.outcomes li .stat{
+    color:var(--ink-soft);
+    font-size:0.9rem;
+  }
+
+  .citation{
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+
+  .study-link{
+    display:inline-block;
+    font-size:0.92rem;
+    font-weight:700;
+    color:var(--ink);
+    text-decoration:none;
+    padding:10px 18px;
+    background:var(--yellow);
+    border:1px solid var(--yellow);
+    border-radius:3px;
+    margin-bottom:36px;
+    transition:background 150ms ease, border-color 150ms ease;
+  }
+  .study-link:hover{
+    background:var(--turmeric-deep);
+    border-color:var(--turmeric-deep);
+    color:#fff;
+  }
+
+  /* ---------- CLOSING BAND ---------- */
+  .closing{
+    position:relative;
+    overflow:hidden;
+    margin:56px -24px 0;
+    padding:60px 32px 64px;
+    background:var(--ink);
+    border-top:4px solid var(--yellow);
+    color:var(--paper);
+  }
+  .closing .wrap{padding:0; position:relative; z-index:1;}
+    .closing h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.5rem;
+    max-width:22ch;
+    margin:0 0 12px;
+    line-height:1.25;
+  }
+  .closing p{
+    font-size:0.88rem;
+    color:rgba(251,242,225,0.7);
+    max-width:44ch;
+    margin:0;
+  }
+
+  footer{
+    padding:28px 0 48px;
+  }
+  footer .brand{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1rem;
+    margin-bottom:6px;
+  }
+  footer p{
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin:0;
+  }
+
+  @media (min-width:600px){
+    .word-gold{font-size:3.8rem;}
+    .word-sub{font-size:1.75rem;}
+  }
+
+  /* ---------- LANGUAGE TOGGLE ---------- */
+  .lang-toggle{
+    position:fixed;
+    top:14px; right:14px;
+    z-index:50;
+    display:flex;
+    gap:2px;
+    background:rgba(252,254,250,0.92);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:3px;
+    box-shadow:0 2px 10px rgba(55,34,15,0.08);
+  }
+  .lang-toggle button{
+    font-family:'Inter',sans-serif;
+    font-size:0.7rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    border:none;
+    background:transparent;
+    color:var(--ink-soft);
+    padding:6px 11px;
+    border-radius:999px;
+    cursor:pointer;
+  }
+  .lang-toggle button.active{
+    background:var(--turmeric-deep);
+    color:#fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+
+<div class="lang-toggle" role="group" aria-label="Language">
+  <button type="button" data-lang="en" class="active">EN</button>
+  <button type="button" data-lang="uk">UA</button>
+  <button type="button" data-lang="uz">UZ</button>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>
+        <span class="word-gold" data-i18n="hero.word">Curcumin</span>
+        <span class="word-sub" data-i18n="hero.sub">Same Switch, Different Symptoms</span>
+      </h1>
+      <p class="lede" data-i18n="hero.lede">It switches off <b>NF-κB</b> — the master regulator behind chronic inflammation. Here's what that looks like across four conditions you see in clinic every week.</p>
+    </div>
+  </header>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 360 400" width="100%" role="img" aria-labelledby="diagramTitle">
+      <title id="diagramTitle" data-i18n="diagram.title">NF-κB as the shared root cause branching into PMOS, Metabolic Syndrome, and Glycaemic Control</title>
+
+      <line class="spoke" x1="180" y1="112" x2="80" y2="240"></line>
+      <line class="spoke" x1="180" y1="112" x2="280" y2="240"></line>
+      <line class="spoke" x1="180" y1="112" x2="180" y2="340"></line>
+
+      <circle cx="180" cy="70" r="44" fill="#B96E1B"></circle>
+      <text x="180" y="76" text-anchor="middle" class="hub-label">NF-κB</text>
+
+      <a class="diagram-link" href="#pmos"><title data-i18n="diagram.jumppcos">Jump to PMOS</title>
+        <circle class="node-dot" cx="80" cy="240" r="7"></circle>
+        <text x="80" y="263" text-anchor="middle" class="node-label" data-i18n="diagram.pcos">PMOS</text>
+      </a>
+
+      <a class="diagram-link" href="#metabolic-syndrome"><title data-i18n="diagram.jumpmetsyn">Jump to Metabolic Syndrome</title>
+        <circle class="node-dot" cx="280" cy="240" r="7"></circle>
+        <text x="280" y="263" text-anchor="middle" class="node-label" data-i18n="diagram.metsyn1">Metabolic</text>
+        <text x="280" y="278" text-anchor="middle" class="node-label" data-i18n="diagram.metsyn2">Syndrome</text>
+      </a>
+
+      <a class="diagram-link" href="#glycaemic-control"><title data-i18n="diagram.jumpglyc">Jump to Glycaemic Control</title>
+        <circle class="node-dot" cx="180" cy="340" r="7"></circle>
+        <text x="180" y="363" text-anchor="middle" class="node-label" data-i18n="diagram.glyc1">Glycaemic</text>
+        <text x="180" y="378" text-anchor="middle" class="node-label" data-i18n="diagram.glyc2">Control</text>
+      </a>
+    </svg>
+    <p class="diagram-caption" data-i18n="diagram.caption">Three conditions, one shared inflammatory driver. Dysmenorrhea works through a separate pathway — see below. Tap a node to jump to the evidence.</p>
+  </div>
+
+  <main>
+
+    <section class="indication" id="pmos">
+      <div class="tag-row"><span class="evidence-tag" data-i18n="pcos.tag">Human RCT · 200 patients</span></div>
+      <h2 data-i18n="pcos.h2">PMOS (formerly PCOS)</h2>
+      <p class="frame" data-i18n="pcos.frame">The most common endocrine disorder in women of reproductive age — insulin resistance, dyslipidemia, and inflammation, all showing up together.</p>
+      <ul class="outcomes">
+        <li data-i18n="pcos.o1">Improved cholesterol and blood glucose markers</li>
+        <li data-i18n="pcos.o2">Improved hormone levels — LH, FSH, testosterone</li>
+        <li data-i18n="pcos.o3">Greater effect than metformin or curcumin given alone</li>
+      </ul>
+      <p class="citation" data-i18n="pcos.citation">Feghhi F, et al. <em>Phytomedicine</em>, 2024. Randomized, double-blind, placebo-controlled, 12-week factorial trial.</p>
+      <a class="study-link" data-i18n="pcos.link" href="https://pubmed.ncbi.nlm.nih.gov/39461199/" target="_blank" rel="noopener">Read the study</a>
+    </section>
+
+    <section class="indication" id="metabolic-syndrome">
+      <div class="tag-row"><span class="evidence-tag" data-i18n="metsyn.tag">Meta-analysis · 13 RCTs · 785 patients</span></div>
+      <h2 data-i18n="metsyn.h2">Metabolic Syndrome</h2>
+      <p class="frame" data-i18n="metsyn.frame">The metabolic load many PMOS patients are already carrying — elevated glucose, dyslipidemia, oxidative stress.</p>
+      <ul class="outcomes">
+        <li data-i18n="metsyn.o1">Waist circumference improved <span class="stat">(p=0.009)</span></li>
+        <li data-i18n="metsyn.o2">Fasting blood sugar improved <span class="stat">(p=0.01)</span></li>
+        <li data-i18n="metsyn.o3">Diastolic blood pressure improved <span class="stat">(p=0.002)</span></li>
+        <li data-i18n="metsyn.o4">HDL, the protective cholesterol, went up <span class="stat">(p&lt;0.0001)</span></li>
+        <li data-i18n="metsyn.o5">CRP and TNF-α, both inflammation markers, went down <span class="stat">(p&lt;0.00001)</span></li>
+      </ul>
+      <p class="citation" data-i18n="metsyn.citation">Qiu L, et al. <em>Frontiers in Endocrinology</em>, 2023. Systematic review and meta-analysis.</p>
+      <a class="study-link" data-i18n="metsyn.link" href="https://pubmed.ncbi.nlm.nih.gov/37522129/" target="_blank" rel="noopener">Read the study</a>
+    </section>
+
+    <section class="indication" id="glycaemic-control">
+      <div class="tag-row"><span class="evidence-tag" data-i18n="glyc.tag">Human RCT · 240 patients · 9 months</span></div>
+      <h2 data-i18n="glyc.h2">Glycaemic Control</h2>
+      <p class="frame" data-i18n="glyc.frame">Insulin resistance sits upstream of both PMOS and metabolic syndrome. This trial asked a simple question: can curcumin stop prediabetes from becoming diabetes?</p>
+      <ul class="outcomes">
+        <li data-i18n="glyc.o1">0% of curcumin-treated patients progressed to type 2 diabetes over 9 months, vs. <span class="stat">16.4% on placebo</span></li>
+        <li data-i18n="glyc.o2">Insulin resistance (HOMA-IR) improved: <span class="stat">3.22 vs. 4.04, p&lt;0.001</span></li>
+        <li data-i18n="glyc.o3">Beta-cell function (HOMA-β) improved: <span class="stat">61.58 vs. 48.72, p&lt;0.01</span></li>
+      </ul>
+      <p class="citation" data-i18n="glyc.citation">Chuengsamarn S, et al. <em>Diabetes Care</em>, 2012. Randomized, double-blind, placebo-controlled trial.</p>
+      <a class="study-link" data-i18n="glyc.link" href="https://pubmed.ncbi.nlm.nih.gov/22773702/" target="_blank" rel="noopener">Read the study</a>
+    </section>
+
+    <section class="indication" id="dysmenorrhea">
+      <div class="tag-row"><span class="evidence-tag" data-i18n="dysm.tag">Human RCT</span></div>
+      <h2 data-i18n="dysm.h2">Dysmenorrhea</h2>
+      <p class="frame" data-i18n="dysm.frame">A distinct mechanism, used differently — curcumin alongside an NSAID, not instead of one.</p>
+      <ul class="outcomes">
+        <li data-i18n="dysm.o1">Turmeric combined with mefenamic acid relieved menstrual pain more than mefenamic acid alone</li>
+      </ul>
+      <p class="citation" data-i18n="dysm.citation">Hesami S, et al. <em>J Gynecol Obstet Hum Reprod</em>, 2021. Randomized, double-blind, placebo-controlled trial.</p>
+      <a class="study-link" data-i18n="dysm.link" href="https://pubmed.ncbi.nlm.nih.gov/32585392/" target="_blank" rel="noopener">Read the study</a>
+    </section>
+
+  </main>
+
+</div>
+
+<div class="closing">
+  <div class="wrap">
+    <h3 data-i18n="closing.h3">Metabolism. Inflammation. Women's health.</h3>
+    <p data-i18n="closing.p">The three conditions above share a common inflammatory driver, evidenced by the four studies cited on this page. Curcumin's wider evidence base — 314 trials, 22,000+ patients (Howells LM, et al. <em>Mol Nutr Food Res</em>, 2021) — spans many other indications and mechanisms beyond this one.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <p class="brand">Zandra Life Sciences Pvt Ltd</p>
+    <p data-i18n="footer.p">For healthcare professional reference. Evidence summarized from published, peer-reviewed literature — consult full-text sources before clinical application.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var translations = {
+  "en": {
+    "meta.title": "Curcumin: Same Switch, Different Symptoms",
+    "hero.word": "Curcumin",
+    "hero.sub": "Same Switch, Different Symptoms",
+    "hero.lede": "It switches off <b>NF-κB</b> — the master regulator behind chronic inflammation. Here's what that looks like across four conditions you see in clinic every week.",
+    "diagram.title": "NF-κB as the shared root cause branching into PMOS, Metabolic Syndrome, and Glycaemic Control",
+    "diagram.jumppcos": "Jump to PMOS",
+    "diagram.jumpmetsyn": "Jump to Metabolic Syndrome",
+    "diagram.jumpglyc": "Jump to Glycaemic Control",
+    "diagram.pcos": "PMOS",
+    "diagram.metsyn1": "Metabolic",
+    "diagram.metsyn2": "Syndrome",
+    "diagram.glyc1": "Glycaemic",
+    "diagram.glyc2": "Control",
+    "diagram.caption": "Three conditions, one shared inflammatory driver. Dysmenorrhea works through a separate pathway — see below. Tap a node to jump to the evidence.",
+    "pcos.tag": "Human RCT · 200 patients",
+    "pcos.h2": "PMOS (formerly PCOS)",
+    "pcos.frame": "The most common endocrine disorder in women of reproductive age — insulin resistance, dyslipidemia, and inflammation, all showing up together.",
+    "pcos.o1": "Improved cholesterol and blood glucose markers",
+    "pcos.o2": "Improved hormone levels — LH, FSH, testosterone",
+    "pcos.o3": "Greater effect than metformin or curcumin given alone",
+    "pcos.citation": "Feghhi F, et al. <em>Phytomedicine</em>, 2024. Randomized, double-blind, placebo-controlled, 12-week factorial trial.",
+    "pcos.link": "Read the study",
+    "metsyn.tag": "Meta-analysis · 13 RCTs · 785 patients",
+    "metsyn.h2": "Metabolic Syndrome",
+    "metsyn.frame": "The metabolic load many PMOS patients are already carrying — elevated glucose, dyslipidemia, oxidative stress.",
+    "metsyn.o1": "Waist circumference improved <span class=\"stat\">(p=0.009)</span>",
+    "metsyn.o2": "Fasting blood sugar improved <span class=\"stat\">(p=0.01)</span>",
+    "metsyn.o3": "Diastolic blood pressure improved <span class=\"stat\">(p=0.002)</span>",
+    "metsyn.o4": "HDL, the protective cholesterol, went up <span class=\"stat\">(p&lt;0.0001)</span>",
+    "metsyn.o5": "CRP and TNF-α, both inflammation markers, went down <span class=\"stat\">(p&lt;0.00001)</span>",
+    "metsyn.citation": "Qiu L, et al. <em>Frontiers in Endocrinology</em>, 2023. Systematic review and meta-analysis.",
+    "metsyn.link": "Read the study",
+    "glyc.tag": "Human RCT · 240 patients · 9 months",
+    "glyc.h2": "Glycaemic Control",
+    "glyc.frame": "Insulin resistance sits upstream of both PMOS and metabolic syndrome. This trial asked a simple question: can curcumin stop prediabetes from becoming diabetes?",
+    "glyc.o1": "0% of curcumin-treated patients progressed to type 2 diabetes over 9 months, vs. <span class=\"stat\">16.4% on placebo</span>",
+    "glyc.o2": "Insulin resistance (HOMA-IR) improved: <span class=\"stat\">3.22 vs. 4.04, p&lt;0.001</span>",
+    "glyc.o3": "Beta-cell function (HOMA-β) improved: <span class=\"stat\">61.58 vs. 48.72, p&lt;0.01</span>",
+    "glyc.citation": "Chuengsamarn S, et al. <em>Diabetes Care</em>, 2012. Randomized, double-blind, placebo-controlled trial.",
+    "glyc.link": "Read the study",
+    "dysm.tag": "Human RCT",
+    "dysm.h2": "Dysmenorrhea",
+    "dysm.frame": "A distinct mechanism, used differently — curcumin alongside an NSAID, not instead of one.",
+    "dysm.o1": "Turmeric combined with mefenamic acid relieved menstrual pain more than mefenamic acid alone",
+    "dysm.citation": "Hesami S, et al. <em>J Gynecol Obstet Hum Reprod</em>, 2021. Randomized, double-blind, placebo-controlled trial.",
+    "dysm.link": "Read the study",
+    "closing.h3": "Metabolism. Inflammation. Women's health.",
+    "closing.p": "The three conditions above share a common inflammatory driver, evidenced by the four studies cited on this page. Curcumin's wider evidence base — 314 trials, 22,000+ patients (Howells LM, et al. <em>Mol Nutr Food Res</em>, 2021) — spans many other indications and mechanisms beyond this one.",
+    "footer.p": "For healthcare professional reference. Evidence summarized from published, peer-reviewed literature — consult full-text sources before clinical application."
+  },
+  "uk": {
+    "meta.title": "Куркумін: Той самий перемикач, різні симптоми",
+    "hero.word": "Куркумін",
+    "hero.sub": "Той самий перемикач, різні симптоми",
+    "hero.lede": "Він вимикає <b>NF-κB</b> — головний регулятор хронічного запалення. Ось як це проявляється у чотирьох станах, які ви бачите в клініці щотижня.",
+    "diagram.title": "NF-κB як спільна коренева причина, що розгалужується на ПМОС, метаболічний синдром та глікемічний контроль",
+    "diagram.jumppcos": "Перейти до ПМОС",
+    "diagram.jumpmetsyn": "Перейти до метаболічного синдрому",
+    "diagram.jumpglyc": "Перейти до глікемічного контролю",
+    "diagram.pcos": "ПМОС",
+    "diagram.metsyn1": "Метаболічний",
+    "diagram.metsyn2": "синдром",
+    "diagram.glyc1": "Глікемічний",
+    "diagram.glyc2": "контроль",
+    "diagram.caption": "Три стани, один спільний запальний чинник. Дисменорея діє іншим шляхом — дивіться нижче. Натисніть на вузол, щоб перейти до доказів.",
+    "pcos.tag": "РКД · 200 пацієнток",
+    "pcos.h2": "ПМОС (раніше — СПКЯ)",
+    "pcos.frame": "Найпоширеніше ендокринне захворювання серед жінок репродуктивного віку — інсулінорезистентність, дисліпідемія та запалення виявляються одночасно.",
+    "pcos.o1": "Покращення показників холестерину та глюкози крові",
+    "pcos.o2": "Покращення рівня гормонів — ЛГ, ФСГ, тестостерон",
+    "pcos.o3": "Ефект сильніший, ніж при застосуванні метформіну або куркуміну окремо",
+    "pcos.citation": "Feghhi F, та ін. <em>Phytomedicine</em>, 2024. Рандомізоване, подвійне сліпе, плацебо-контрольоване, 12-тижневе факторне дослідження.",
+    "pcos.link": "Читати дослідження",
+    "metsyn.tag": "Мета-аналіз · 13 РКД · 785 пацієнтів",
+    "metsyn.h2": "Метаболічний синдром",
+    "metsyn.frame": "Метаболічне навантаження, яке вже несуть багато пацієнток із ПМОС — підвищена глюкоза, дисліпідемія, оксидативний стрес.",
+    "metsyn.o1": "Покращення окружності талії <span class=\"stat\">(p=0,009)</span>",
+    "metsyn.o2": "Покращення рівня глюкози натще <span class=\"stat\">(p=0,01)</span>",
+    "metsyn.o3": "Покращення діастолічного тиску <span class=\"stat\">(p=0,002)</span>",
+    "metsyn.o4": "Зростання ЛПВЩ, «захисного» холестерину <span class=\"stat\">(p&lt;0,0001)</span>",
+    "metsyn.o5": "Зниження СРБ та TNF-α, маркерів запалення <span class=\"stat\">(p&lt;0,00001)</span>",
+    "metsyn.citation": "Qiu L, та ін. <em>Frontiers in Endocrinology</em>, 2023. Систематичний огляд і мета-аналіз.",
+    "metsyn.link": "Читати дослідження",
+    "glyc.tag": "РКД · 240 пацієнтів · 9 місяців",
+    "glyc.h2": "Глікемічний контроль",
+    "glyc.frame": "Інсулінорезистентність лежить в основі і ПМОС, і метаболічного синдрому. Це дослідження мало на меті відповісти на просте запитання: чи може куркумін зупинити перехід переддіабету у діабет?",
+    "glyc.o1": "0% пацієнтів, які отримували куркумін, перейшли до діабету 2 типу за 9 місяців, порівняно з <span class=\"stat\">16,4% у групі плацебо</span>",
+    "glyc.o2": "Інсулінорезистентність (HOMA-IR) покращилася: <span class=\"stat\">3,22 проти 4,04, p&lt;0,001</span>",
+    "glyc.o3": "Функція бета-клітин (HOMA-β) покращилася: <span class=\"stat\">61,58 проти 48,72, p&lt;0,01</span>",
+    "glyc.citation": "Chuengsamarn S, та ін. <em>Diabetes Care</em>, 2012. Рандомізоване, подвійне сліпе, плацебо-контрольоване дослідження.",
+    "glyc.link": "Читати дослідження",
+    "dysm.tag": "РКД",
+    "dysm.h2": "Дисменорея",
+    "dysm.frame": "Окремий механізм, інше застосування — куркумін разом з НПЗЗ, а не замість нього.",
+    "dysm.o1": "Куркума у поєднанні з мефенаміновою кислотою полегшувала менструальний біль ефективніше, ніж сама мефенамінова кислота",
+    "dysm.citation": "Hesami S, та ін. <em>J Gynecol Obstet Hum Reprod</em>, 2021. Рандомізоване, подвійне сліпе, плацебо-контрольоване дослідження.",
+    "dysm.link": "Читати дослідження",
+    "closing.h3": "Метаболізм. Запалення. Здоров'я жінки.",
+    "closing.p": "Три стани вище мають спільний запальний чинник, що підтверджується чотирма дослідженнями, наведеними на цій сторінці. Ширша доказова база куркуміну — 314 досліджень, понад 22 000 пацієнтів (Howells LM, та ін., <em>Mol Nutr Food Res</em>, 2021) — охоплює багато інших показань і механізмів, окрім цього.",
+    "footer.p": "Довідкова інформація для медичних працівників. Дані узагальнено з опублікованої рецензованої літератури — перед клінічним застосуванням ознайомтеся з повними текстами джерел."
+  },
+  "uz": {
+    "meta.title": "Kurkumin: Bir xil kalit, turli simptomlar",
+    "hero.word": "Kurkumin",
+    "hero.sub": "Bir xil kalit, turli simptomlar",
+    "hero.lede": "U <b>NF-κB</b>ni o'chiradi — surunkali yallig'lanish ortidagi bosh boshqaruvchi omil. Mana bu har hafta klinikada uchraydigan to'rtta holatda qanday namoyon bo'lishi.",
+    "diagram.title": "NF-κB PMOS, metabolik sindrom va glikemik nazoratga tarmoqlanadigan umumiy ildiz sabab sifatida",
+    "diagram.jumppcos": "PMOS bo'limiga o'tish",
+    "diagram.jumpmetsyn": "Metabolik sindrom bo'limiga o'tish",
+    "diagram.jumpglyc": "Glikemik nazorat bo'limiga o'tish",
+    "diagram.pcos": "PMOS",
+    "diagram.metsyn1": "Metabolik",
+    "diagram.metsyn2": "sindrom",
+    "diagram.glyc1": "Glikemik",
+    "diagram.glyc2": "nazorat",
+    "diagram.caption": "Uchta holat, bitta umumiy yallig'lanish omili. Dismenoreya alohida mexanizm orqali ishlaydi — quyida ko'ring. Dalillarga o'tish uchun tugunni bosing.",
+    "pcos.tag": "Odamlarda RKS · 200 bemor",
+    "pcos.h2": "PMOS (avvalgi nomi PKOS)",
+    "pcos.frame": "Reproduktiv yoshdagi ayollarda eng ko'p uchraydigan endokrin kasallik — insulinga chidamlilik, dislipidemiya va yallig'lanish birgalikda namoyon bo'ladi.",
+    "pcos.o1": "Xolesterin va qon glyukozasi ko'rsatkichlari yaxshilandi",
+    "pcos.o2": "Gormon darajalari yaxshilandi — LG, FSG, testosteron",
+    "pcos.o3": "Metformin yoki kurkuminni alohida qabul qilishdan ko'ra kuchliroq ta'sir",
+    "pcos.citation": "Feghhi F, va boshq. <em>Phytomedicine</em>, 2024. Randomizatsiyalangan, ikki tomonlama ko'r, platsebo nazoratli, 12 haftalik faktorli tadqiqot.",
+    "pcos.link": "Tadqiqotni o'qish",
+    "metsyn.tag": "Meta-tahlil · 13 RKS · 785 bemor",
+    "metsyn.h2": "Metabolik sindrom",
+    "metsyn.frame": "Ko'p PMOS bemorlari allaqachon ko'tarib yurgan metabolik yuk — yuqori glyukoza, dislipidemiya, oksidlanish stressi.",
+    "metsyn.o1": "Bel aylanasi yaxshilandi <span class=\"stat\">(p=0,009)</span>",
+    "metsyn.o2": "Och qoringa glyukoza yaxshilandi <span class=\"stat\">(p=0,01)</span>",
+    "metsyn.o3": "Diastolik qon bosimi yaxshilandi <span class=\"stat\">(p=0,002)</span>",
+    "metsyn.o4": "\"Foydali\" xolesterin — YZLP oshdi <span class=\"stat\">(p&lt;0,0001)</span>",
+    "metsyn.o5": "Yallig'lanish markerlari CRP va TNF-α pasaydi <span class=\"stat\">(p&lt;0,00001)</span>",
+    "metsyn.citation": "Qiu L, va boshq. <em>Frontiers in Endocrinology</em>, 2023. Tizimli sharh va meta-tahlil.",
+    "metsyn.link": "Tadqiqotni o'qish",
+    "glyc.tag": "Odamlarda RKS · 240 bemor · 9 oy",
+    "glyc.h2": "Glikemik nazorat",
+    "glyc.frame": "Insulinga chidamlilik ham PMOS, ham metabolik sindromning tagida yotadi. Bu tadqiqot oddiy savolga javob izladi: kurkumin prediabetni 2-toifa diabetga aylanishidan to'xtata oladimi?",
+    "glyc.o1": "Kurkumin qabul qilgan bemorlarning 0% i 9 oy ichida 2-toifa diabetga o'tdi, <span class=\"stat\">platsebo guruhida esa 16,4%</span>",
+    "glyc.o2": "Insulinga chidamlilik (HOMA-IR) yaxshilandi: <span class=\"stat\">3,22 va 4,04, p&lt;0,001</span>",
+    "glyc.o3": "Beta-hujayra faoliyati (HOMA-β) yaxshilandi: <span class=\"stat\">61,58 va 48,72, p&lt;0,01</span>",
+    "glyc.citation": "Chuengsamarn S, va boshq. <em>Diabetes Care</em>, 2012. Randomizatsiyalangan, ikki tomonlama ko'r, platsebo nazoratli tadqiqot.",
+    "glyc.link": "Tadqiqotni o'qish",
+    "dysm.tag": "Odamlarda RKS",
+    "dysm.h2": "Dismenoreya",
+    "dysm.frame": "Alohida mexanizm, boshqacha qo'llanish — kurkumin NSAID bilan birga, uning o'rniga emas.",
+    "dysm.o1": "Kurkuma va mefenam kislotasi birgalikda faqat mefenam kislotasiga qaraganda hayz og'rig'ini kuchliroq yengillashtirdi",
+    "dysm.citation": "Hesami S, va boshq. <em>J Gynecol Obstet Hum Reprod</em>, 2021. Randomizatsiyalangan, ikki tomonlama ko'r, platsebo nazoratli tadqiqot.",
+    "dysm.link": "Tadqiqotni o'qish",
+    "closing.h3": "Metabolizm. Yallig'lanish. Ayollar salomatligi.",
+    "closing.p": "Yuqoridagi uchta holat umumiy yallig'lanish omiliga ega ekanligi ushbu sahifada keltirilgan to'rtta tadqiqot bilan tasdiqlangan. Kurkuminning kengroq dalil bazasi — 314 tadqiqot, 22 000 dan ortiq bemor (Howells LM, va boshq., <em>Mol Nutr Food Res</em>, 2021) — bundan tashqari ko'plab boshqa ko'rsatkichlar va mexanizmlarni qamrab oladi.",
+    "footer.p": "Tibbiyot xodimlari uchun ma'lumot. Dalillar chop etilgan, taqrizdan o'tgan adabiyotlar asosida umumlashtirilgan — klinik qo'llashdan oldin to'liq matn manbalari bilan tanishing."
+  }
+};
+
+  function applyLang(lang){
+    var dict = translations[lang];
+    if(!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined){ el.innerHTML = dict[key]; }
+    });
+    document.documentElement.setAttribute('lang', lang);
+    if(dict['meta.title']){ document.title = dict['meta.title']; }
+    document.querySelectorAll('.lang-toggle button').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang-toggle button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLang(btn.getAttribute('data-lang'));
+    });
+  });
+
+  applyLang('en');
+})();
+</script>
+</body>
+</html>
